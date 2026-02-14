@@ -27,6 +27,8 @@ jobs:
     deplay:
         needs: build-and-test
         runs-on: ubuntu-latest
+        permissions:
+            contents: write
         steps:
             - name: Checkout Code
               uses: actions/checkout@v4
@@ -34,6 +36,6 @@ jobs:
             - name: Deploy GitHub Pages
               uses: peaceiris/actions-gh-pages@v3
               with:
-                github-token: ${{ secrets.GITHUB_TOKEN }}
-                publish-dir: ./
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: ./
                 
