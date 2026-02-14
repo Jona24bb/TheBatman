@@ -1,0 +1,36 @@
+name: CI-CD pipeline para sitios de juegos
+
+on: 
+    push:
+        branches: [ main ]
+
+jobs: 
+    build-and-test:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout Code
+            uses: actions/checkout@v4
+
+          - name: validar  HTML
+            uses: cygnetdigital/html5validator-action@v1
+            with:
+              root: .
+              
+          - name: Busqueda de links rotos 
+            uses: justinBeckwith/linkinator-action@v1
+            with:
+              paths: 'index.html'
+
+    deplay:
+        needs: build-and-test
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Deploy GitHub Pages
+              uses: peaceiris/actions-hg-pages@v3
+              with:
+                github-token: ${{ secrets.GITHUB_TOKEN }}
+                publish-dir: ./
+                
