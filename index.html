@@ -1,51 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Batman (2022)</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
 </head>
+
 <body>
 
-<nav>
-    <a href="index.html">Película</a>
-    <a href="batman.html">Batman</a>
-    <a href="acertijo.html">Acertijo</a>
-</nav>
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("service-worker.js")
+                .then(() => console.log("Service Worker registrado"))
+                .catch(error => console.log("Error:", error));
+        }
+    </script>
 
-<header>
-    <h1>THE BATMAN</h1>
-    <p>La oscuridad revela la verdad</p>
-</header>
+    <nav>
+        <a href="index.html">Película</a>
+        <a href="batman.html">Batman</a>
+        <a href="acertijo.html">Acertijo</a>
+    </nav>
 
-<section>
-    <h2>Historia</h2>
-    <p>
-        En una Gotham consumida por la corrupción, Batman investiga una serie de
-        asesinatos cometidos por el Acertijo, quien deja pistas macabras que revelan
-        los pecados ocultos de la ciudad.
-    </p>
-</section>
+    <header>
+        <h1>THE BATMAN</h1>
+        <p>La oscuridad revela la verdad</p>
+    </header>
 
-<section class="cards">
-    <div class="card batman">
-        <h3>🦇 Batman</h3>
-        <p>El detective</p>
-        <a href="batman.html">Entrar</a>
-    </div>
+    <section>
+        <h2>Historia</h2>
+        <p>
+            En una Gotham consumida por la corrupción, Batman investiga una serie de asesinatos cometidos por el Acertijo, quien deja pistas macabras que revelan los pecados ocultos de la ciudad.
+        </p>
+    </section>
 
-    <div class="card acertijo">
-        <h3>❓ Acertijo</h3>
-        <p>El juego mental</p>
-        <a href="acertijo.html">Entrar</a>
-    </div>
-</section>
+    <section class="cards">
+        <div class="card batman">
+            <h3>🦇 Batman</h3>
+            <p>El detective</p>
+            <a href="batman.html">Entrar</a>
+        </div>
 
-<footer>
-    <p>“You’re part of this too.”</p>
-</footer>
+        <div class="card acertijo">
+            <h3>❓ Acertijo</h3>
+            <p>El juego mental</p>
+            <a href="acertijo.html">Entrar</a>
+        </div>
+    </section>
 
-<script src="lluvia.js"></script>
+    <footer>
+        <p>“Youre part of this too.”</p>
+    </footer>
+
+    <script src="lluvia.js"></script>
 </body>
+
 </html>
